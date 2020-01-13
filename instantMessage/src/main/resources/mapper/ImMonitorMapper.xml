@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instant.mapper.ImMonitorMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.instant.model.ImMonitor">
+        <id column="monitor_id" property="monitorId" />
+        <result column="account_id" property="accountId" />
+        <result column="monitor_data" property="monitorData" />
+        <result column="monitor_web_count" property="monitorWebCount" />
+        <result column="monitor_android_count" property="monitorAndroidCount" />
+        <result column="monitor_ios_count" property="monitorIosCount" />
+        <result column="monitor_user_count" property="monitorUserCount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        monitor_id, account_id, monitor_data, monitor_web_count, monitor_android_count, monitor_ios_count, monitor_user_count
+    </sql>
+
+</mapper>

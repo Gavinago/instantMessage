@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/cache   
+            http://www.springframework.org/schema/cache/spring-cache.xsd ">
+
+	<!-- 缓存配置 -->
+	<bean name="ehCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:config/ehcache.xml" />
+	</bean>
+
+	<!-- spring 封装ehcache缓存管理器 -->
+	<bean id="springCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehCacheManager" />
+	</bean>
+	<!-- 构造函数注入 -->
+<!-- 	<bean id="EhcacheUtils" class="com.kehuayouli.utils.cache.EhcacheUtils" > -->
+		<!-- name属性: 构造函数的参数名 -->
+		<!-- index属性: 构造函数的参数索引 -->
+		<!-- type属性: 构造函数的参数类型-->
+		<!-- <constructor-arg name="LoginRetryLimit" ref="springCacheManager"></constructor-arg> -->
+<!-- 		<property name="ehcacheManager" ref="ehCacheManager" ></property> -->
+<!-- 	</bean> -->
+
+	<!-- 激活spring 缓存注解 -->
+	<cache:annotation-driven
+		cache-manager="springCacheManager" />
+
+</beans>  

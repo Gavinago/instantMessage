@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instant.mapper.TRecodermessageMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.instant.model.TRecodermessage">
+        <id column="msg_id" property="msgId" />
+        <result column="app_key" property="appKey" />
+        <result column="msg_context" property="msgContext" />
+        <result column="msg_send_time" property="msgSendTime" />
+        <result column="msg_receive_time" property="msgReceiveTime" />
+        <result column="msg_status" property="msgStatus" />
+        <result column="msg_delflag" property="msgDelflag" />
+        <result column="msg_conversation_type" property="msgConversationType" />
+        <result column="msg_direction" property="msgDirection" />
+        <result column="msg_sent_status" property="msgSentStatus" />
+        <result column="msg_sender_id" property="msgSenderId" />
+        <result column="msg_receiver_id" property="msgReceiverId" />
+        <result column="msg_off_line" property="msgOffLine" />
+        <result column="msg_received_status" property="msgReceivedStatus" />
+        <result column="msg_type" property="msgType" />
+        <result column="msg_random_str" property="msgRandomStr" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        msg_id, app_key, msg_context, msg_send_time, msg_receive_time, msg_status, msg_delflag, msg_conversation_type, msg_direction, msg_sent_status, msg_sender_id, msg_receiver_id, msg_off_line, msg_received_status, msg_type, msg_random_str
+    </sql>
+
+</mapper>

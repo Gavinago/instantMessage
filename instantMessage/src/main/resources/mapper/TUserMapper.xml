@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.instant.mapper.TUserMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.instant.model.TUser">
+        <id column="user_id" property="userId" />
+        <result column="account_id" property="accountId" />
+        <result column="user_portrait" property="userPortrait" />
+        <result column="user_gender" property="userGender" />
+        <result column="user_token" property="userToken" />
+        <result column="user_belong_key" property="userBelongKey" />
+        <result column="user_last_login_time" property="userLastLoginTime" />
+        <result column="user_create_time" property="userCreateTime" />
+        <result column="user_info_modify_time" property="userInfoModifyTime" />
+        <result column="user_status" property="userStatus" />
+        <result column="user_nickname" property="userNickname" />
+        <result column="app_user_id" property="appUserId" />
+        <result column="app_regi_id" property="appRegiId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, account_id, user_portrait, user_gender, user_token, user_belong_key, user_last_login_time, user_create_time, user_info_modify_time, user_status, user_nickname, app_user_id, app_regi_id
+    </sql>
+
+</mapper>
